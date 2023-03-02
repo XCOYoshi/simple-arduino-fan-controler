@@ -1,9 +1,9 @@
 #include <GyverGFX.h> //lib https://github.com/GyverLibs/GyverGFX
 #include <GyverMAX6675.h> // lib https://github.com/GyverLibs/GyverMAX6675
 
-#define CLK_PIN   13
-#define DATA_PIN  12
-#define CS_PIN    10
+const int CLK_PIN = 13; //sck
+const int DATA_PIN = 12; //S0
+const int CS_PIN = 10; //CS
 
 GyverMAX6675<CLK_PIN, DATA_PIN, CS_PIN> sens;  // sens.readTemp to read sensore data sens.getTemp()is to get the temprature sens.getTempInt() to get the remp as init
 
