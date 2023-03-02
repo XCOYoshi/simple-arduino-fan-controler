@@ -21,7 +21,7 @@ void setup() {
 
 void loop() {
   digitalWrite(relais1, HIGH);
-  digitalWrite(relais2, HIGH);
+  digitalWrite(relais2, HIGH); 
   digitalWrite(relais3, HIGH);
   digitalWrite(relais4, HIGH);
  
