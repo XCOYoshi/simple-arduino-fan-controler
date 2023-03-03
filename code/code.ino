@@ -6,9 +6,9 @@ const int startfanat = 40;
 const int stopfanat = 28;
 
 //pinaut interface to MAX6675
-const int CLK_PIN = 8; //sck
-const int DATA_PIN = 7; //S0
-const int CS_PIN = 6; //CS
+#define CLK_PIN 8 //sck
+#define DATA_PIN  7 //S0
+#define CS_PIN  6 //CS
 
 GyverMAX6675<CLK_PIN, DATA_PIN, CS_PIN> sens;  // sens.readTemp to read sensore data sens.getTemp()is to get the temprature sens.getTempInt() to get the remp as init
 
