@@ -19,9 +19,12 @@ const int relais3 = 4; // low is on
 const int relais4 = 5; // low is on
 
 //system storage
-bool runfan = false;
+bool runfan1 = false;
 
 void setup() {
+  Serial.begin(9600);
+  
+  // pin config
   pinMode(relais1, OUTPUT);
   pinMode(relais2, OUTPUT);
   pinMode(relais3, OUTPUT);
@@ -30,12 +33,18 @@ void setup() {
 }
 
 void loop() {
-  // temp sense
-  if(sens.getTempInt() >= startfanat){runfan = true;}
-  if(sens.getTempInt() <= stopfanat){runfan = true;}
+  Serial.print(sens.getTempInt());
+  tempsenseandrunfan1(relais1, sens.getTempInt(), startfanat, stopfanat);
 
-  // run fan or turn of fan
-  if(runfan == true){digitalWrite(relais1, LOW);}
-  if(runfan == false){digitalWrite(relais1, HIGH);}
   
 }
+
+void tempsenseandrunfan1(int relai, int temprature, int startfantmp, int stopfantmp){
+  // temp sense
+  if(temprature >= startfantmp){runfan1 = true;}
+  if(temprature <= stopfantmp){runfan1 = true;}
+
+  // run fan or turn of fan
+  if(runfan1 == true){digitalWrite(relai, LOW);}
+  if(runfan1 == false){digitalWrite(relai, HIGH);}
+  }
