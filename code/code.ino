@@ -3,7 +3,8 @@
 //pinaut interface to MAX6675
 #define CLK_PIN 13 //sck
 #define DATA_PIN  12 //S0
-#define CS_PIN  10 //CS
+#define CS_PIN  11 //CS
+//#define MAX6675_DELAY 20
 
 GyverMAX6675<CLK_PIN, DATA_PIN, CS_PIN> sens;  // sens.readTemp to read sensore data sens.getTemp()is to get the temprature sens.getTempInt() to get the remp as init
 
@@ -32,7 +33,9 @@ void setup() {
 }
 
 void loop() {
-
+  Serial.print("teszt");
+   Serial.print(sens.getTemp());
+   Serial.print("\n");
  if (sens.readTemp()){
    tempsenseandrunfan1(relais1, sens.getTemp(), startfanat, stopfanat);
    Serial.print(sens.getTemp());
